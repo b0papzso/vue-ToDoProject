@@ -11,13 +11,20 @@ const feladat = ref(feladatStore.feladatok.find(f => f.id == route.params.id))
 const vissza = () =>{router.push('/')}
 </script>
 <template>
-    <div class="d-flex flex-wrap container justify-content-around">
-  <label for="nev">Neve</label>
-    <input type="text" name="nev" id="nev" v-model="feladat.title">
-    <label for="desc">Leírás</label>
-    <input type="text" name="desc" id="desc" v-model="feladat.desc">
-    <label for="deadline">Határidő</label>
-    <input type="date" name="deadline" id="deadline" v-model="feladat.deadline">
-    <a class="btn btn-primary m-3" v-on:click="vissza()">Kész</a>
+    <div class="container">
+      <h2>Feladat módosítása</h2>
+  <label for="nev">Neve&nbsp;</label>
+    <input type="text" name="nev" id="nev" v-model="feladat.title" class="mt-3 fit-content">
+    <br>
+    <label for="desc" >Leírás&nbsp;</label>
+    <input type="text" name="desc" id="desc" v-model="feladat.desc" class="mt-3 fit-content">
+    <br>
+    <label for="deadline">Határidő&nbsp;</label>
+    <input type="date" name="deadline" id="deadline" v-model="feladat.deadline" class="mt-3 fit-content">
+    <br>
+    <a class="btn btn-primary mt-3" v-on:click="vissza()">Kész</a>
   </div>
 </template>
+
+<style scoped>
+</style>

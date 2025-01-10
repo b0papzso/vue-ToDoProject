@@ -9,21 +9,21 @@ export const useFeladatStore = defineStore('feladat', () =>{
             title: 'Mosogatás',
             desc: "El kell mosogatni a piszkos konyhani eszközöket",
             isFinished: false,
-            deadline: new Date('January 9, 2025 13:24:00')
+            deadline: "2025-01-10"
         },
         {
             id:"2",
-            title: 'Mosogatás',
-            desc: "El kell mosogatni a piszkos konyhani eszközöket",
+            title: 'Szabó házának megvécépapírozása',
+            desc: "Vécépapírt dobálni Szabó házára",
             isFinished: false,
-            deadline: new Date('January 9, 2025 13:24:00')
+            deadline: "2025-01-18"
         },
         {
             id:"3",
-            title: 'Mosogatás',
-            desc: "El kell mosogatni a piszkos konyhani eszközöket",
+            title: 'Vécépapír vásárlás',
+            desc: "Eldobálódott az összes vécépapír",
             isFinished: false,
-            deadline: new Date('January 9, 2025 11:24:00')
+            deadline: "2025-01-19"
         }
     ])
     const feladatHozzaadas = (feladat) =>{
