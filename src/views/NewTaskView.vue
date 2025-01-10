@@ -1,22 +1,39 @@
 <script setup>
 import { useFeladatStore } from '@/stores/feladatok';
-import { useRoute } from 'vue-router';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
-const route = useRoute()
+const router = useRouter()
+const newtitle = ref()
+const newdesc = ref()
+const newdeadline = ref()
+
 const feladatStore = useFeladatStore()
-const modosit = (id) =>{route.push('/edittask/' + id)}
+var ID = feladatStore.feladatok.length
+if(feladatStore.feladatok.length == 0)
+{
+  ID = 1
+}
+
+var ujfeladat = {
+  id: ID,
+  title: newtitle,
+  desc: newdesc,
+  isFinished: false,
+  deadline: newdeadline
+}
+
+const vissza = () =>{router.push('/')}
 </script>
 <template>
-    <div class="d-flex flex-wrap container justify-content-around"></div>
-  <div v-for="feladat in feladatStore.feladatok" class="d-flex flex-wrap container justify-content-around">
-    <div class="card mt-3 " style="width: 18rem;">
-    <div class="card-body">
-    <h5 class="card-title">{{ feladat.title }}</h5>
-    <p class="card-text" >Leírás: {{ feladat.desc}}</p>
-    <p class="card-text">Állapot: {{ feladat.isFinished ? "Kész" : "Nincs kész" }}</p>
-    <p class="card-text">Határidő: {  feladat.deadline}</p>
-    <a class="btn btn-primary m-3" v-on:click="menj(feladat.id)">Módosítás</a>
-  </div>
-</div>
+    <div class="container">
+      <h2>Feladat hozzáadása</h2><br>
+  <label for="nev">Neve</label>
+    <input type="text" name="nev" id="nev" v-model="newtitle">
+    <label for="desc">Leírás</label>
+    <input type="text" name="desc" id="desc" v-model="newdesc">
+    <label for="deadline">Határidő</label>
+    <input type="date" name="deadline" id="deadline" v-model="newdeadline">
+    <a class="btn btn-primary m-3" v-on:click="feladatStore.feladatHozzaadas(ujfeladat), vissza()" >Hozzáadás</a>
   </div>
 </template>

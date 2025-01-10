@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,7 +14,7 @@ const router = createRouter({
       component: () => import('@/views/NewTaskView.vue'),
     },
     {
-      path: '/edittask',
+      path: '/edittask/:id',
       name: 'Edit Task',
       component: () => import('@/views/EditTaskView.vue'),
     },
